@@ -27,12 +27,12 @@
  *					a link. We suggest that you use an image of at least 
  *					1200x630 pixels.
  *
- * @param int $template_type 0|1|2
  * @param string $title
  * @param string $description 
  * @param string $image
  * @param string $url
  * @param string $type
+ * @param string $fb_app_id 
  * @param array $fb_admins
  * @param string $twitter_username
  * @param string $twitter_author
@@ -51,7 +51,7 @@
 <meta itemprop="name" content="{{ $title or Config::get('app.name') }}">
 <meta itemprop="description" content="{{ $description or '' }}">
 @if( isset($image) )
-	<meta itemprop="image" content="{{ $image or '' }}">
+	<meta itemprop="image" content="{{ $image }}">
 @endif
 
 {{-- Twitter Card data --}}
@@ -65,7 +65,7 @@
 	<meta name="twitter:creator" content="{{ $twitter_author or $twitter_username }}">
 @endif
 @if( isset($image) )
-	<meta name="twitter:image" content="{{ $image or '' }}">
+	<meta name="twitter:image" content="{{ $image }}">
 @endif
 
 {{-- Open Graph data --}}
@@ -75,9 +75,12 @@
 <meta property="og:type" content="{{ $type or 'article' }}" />
 <meta property="og:url" content="{{ $url or  Request::url() }}" />
 @if( isset($image) )
-	<meta property="og:image" content="{{ $image or '' }}" />
+	<meta property="og:image" content="{{ $image }}" />
 @endif
 
+@if( isset($fb_app_id) )
+	<meta property="fb:app_id" content="{{ $fb_app_id }}" />
+@endif
 @if( isset($fb_admins) && count($fb_admins) )
 	@foreach($fb_admins as $fb_admin)
 		<meta property="fb:admins" content="{{ $fb_admin }}" />
