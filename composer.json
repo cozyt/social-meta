@@ -1,0 +1,12 @@
+{
+	"name": "cozyt/social-meta",
+	"description": "",
+	"homepage": "http://bitbucket.org/cozyt/social-meta",
+	"keywords": ["php", "blade", "html"],
+	"authors": [
+		{
+			"name": "A Harvey",
+			"homepage": "https://bitbucket.org/cozyt"
+		}
+	]
+}
