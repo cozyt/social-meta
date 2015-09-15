@@ -8,4 +8,4 @@ Open Graph notes taken directly from the Facebook plugins documentation https://
 
 ## Version
 
-0.1
+0.2
