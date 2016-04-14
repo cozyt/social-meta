@@ -1,4 +1,5 @@
-{{-----------------------------------------------------------------------------
+<?php
+/**
  * Social Meta
  * A snippet that makes it easier you properly define the meta data for
  * the application, specifically for sharing on social media.
@@ -41,9 +42,8 @@
  * @version  0.1
  * @since  0.1
  * @return string
------------------------------------------------------------------------------}}
+*/
 
-<?php
 // Set some really basic defaults
 $title       = isset($title)        ? $title        : Config::get('app.name');
 $description = isset($description)  ? $description  : '';
@@ -82,7 +82,7 @@ $url         = isset($url)          ? $url          : Request::url();
 <meta property="og:description"  content="{{ $og_description       or $description }}" />
 <meta property="og:type"         content="{{ $og_type              or $type }}" />
 <meta property="og:url"          content="{{ $og_url               or $url }}" />
-@if( isset($image) )
+@if($image)
 <meta property="og:image"        content="{{ $og_image             or $image }}" />
 @endif
 
@@ -90,6 +90,7 @@ $url         = isset($url)          ? $url          : Request::url();
 @if( isset($fb_app_id) )
 <meta property="fb:app_id"       content="{{ $fb_app_id }}" />
 @endif
+
 @if( isset($fb_admins) && count($fb_admins) )
 @foreach($fb_admins as $fb_admin)
 <meta property="fb:admins"       content="{{ $fb_admin }}" />
